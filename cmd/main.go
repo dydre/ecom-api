@@ -21,9 +21,9 @@ const (
 	shutdownTimeout   = 10 * time.Second
 	readTimeout       = 10 * time.Second
 	writeTimeout      = 30 * time.Second
+	idleTimeout       = time.Minute
 )
 
-// config хранит конфигурацию приложения.
 type config struct {
 	addr string
 	db   dbConfig
@@ -33,8 +33,6 @@ type dbConfig struct {
 	dsn string
 }
 
-// app — основная структура приложения.
-// logger пробрасывается как зависимость, а не берётся из глобального состояния.
 type app struct {
 	config config
 	logger *slog.Logger
@@ -63,7 +61,7 @@ func (a *app) run(h http.Handler) error {
 		WriteTimeout:      writeTimeout,
 		ReadTimeout:       readTimeout,
 		ReadHeaderTimeout: readHeaderTimeout,
-		IdleTimeout:       time.Minute,
+		IdleTimeout:       idleTimeout,
 	}
 
 	go func() {
