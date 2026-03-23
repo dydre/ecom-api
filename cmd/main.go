@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"ecom-api/internal/config"
+	"ecom-api/internal/products"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -39,6 +40,10 @@ func (a *app) mount(handlerTimeout time.Duration) http.Handler {
 	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("ok\n"))
 	})
+
+	productService := products.NewService()``
+	productHandler := products.NewHandler(productService)
+	r.Get("/products", productHandler.ListProducts)
 
 	return r
 }
