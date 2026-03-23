@@ -2,8 +2,13 @@
 SELECT 
     * 
 FROM 
-    productes;
+    products;
 
 -- name: FindProductsByID :one
-SELECT * FROM productes WHERE id = $ 1;
+SELECT 
+    * 
+FROM
+    products
+WHERE
+    id = $1;
 
