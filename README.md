@@ -55,11 +55,3 @@ go run ./cmd/main.go
 Новая миграция:
 - Создать файл `internal/adapters/postgresql/migrations/00002_<name>.sql`
 
----
-
-## TODO
-
-- [ ] Подключить репозиторий к сервису (см. инструкцию по подключению PostgreSQL)
-- [ ] `POST /products` — создание продукта
-- [ ] `GET /products/{id}` — получение по ID
-- [ ] Добавить инструмент для миграций (goose или migrate)
