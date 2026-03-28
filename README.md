@@ -20,21 +20,6 @@ docker exec -i ecom-postgres psql -U postgres -d ecom \
 go run ./cmd/main.go
 ```
 
-Сервер запустится на `http://localhost:8080`.
-
----
-
-## Конфиг
-
-Файл: `config/local.yaml`. Можно переопределить через переменные окружения.
-
-| Переменная   | Default              | Описание               |
-|--------------|----------------------|------------------------|
-| `CONFIG_PATH`| `config/local.yaml`  | Путь к конфиг-файлу    |
-| `ENV`        | `local`              | `local` / `dev` / `prod` |
-| `DB_DSN`     | —                    | PostgreSQL DSN (обязательно) |
-| `HTTP_PORT`  | `8080`               | Порт сервера           |
-
 ---
 
 ## Endpoints
